@@ -70,20 +70,19 @@ class LocalizacaoController extends Controller
     }
 
     // EXCLUIR
-    public function destroy($id)
+     public function deletar_localizacao(Request $request)
     {
-        $localizacao = Localizacao::find($id);
-
-        if (!$localizacao) {
-            return response()->json([
-                'mensagem' => 'Localização não encontrada.'
-            ], 404);
-        }
-
-        $localizacao->delete();
-
-        return response()->json([
-            'mensagem' => 'Localização excluída!'
+        $request->validate([
+            'id' => 'required|exists:localizacoes,id',
         ]);
+        try {
+            $localizacao = Localizacao::find($request->input('id'));
+            $localizacao->delete();
+
+            return response()->json(['message' => 'Localização deletada com sucesso!', 'erro' => 'n'], 200);
+
+        } catch (\Throwable $th) {
+            return response()->json(['message' => 'Erro ao deletar localização: '.$th->getMessage(), 'erro' => 's'], 500);
+        }
     }
 }
