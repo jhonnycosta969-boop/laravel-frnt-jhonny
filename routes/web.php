@@ -11,10 +11,9 @@ use App\Http\Controllers\PedidoController;
 // Login
 Route::get('/', [LoginController::class, 'index'])->name('login');
 
-Route::get('/login', [LoginController::class, 'index']);
 
-Route::post('/login', [LoginController::class, 'login'])
-    ->name('login.entrar');
+
+
 
 // Dashboard
 Route::get('/dashboard', [DashboardController::class, 'index'])
