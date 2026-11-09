@@ -22,7 +22,6 @@ Route::post('/usuario_cadastro', [App\Http\Controllers\UsuarioController::class,
 Route::get('/ver_usuario', [App\Http\Controllers\UsuarioController::class, 'ver_usuario'])->name('ver_usuario');
 Route::get('/listar_usuarios', [App\Http\Controllers\UsuarioController::class, 'listar_usuarios'])->name('listar_usuarios');
 Route::get('/listar_usuarios_simples', [App\Http\Controllers\UsuarioController::class, 'listar_usuarios_simples'])->name('listar_usuarios_simples');
-Route::put('/alterar_usuario', [UsuarioController::class,'alterar_usuario'])->middleware(VerificarToken::class);
 Route::delete('/deletar_usuario', [App\Http\Controllers\UsuarioController::class, 'deletar_usuario'])->name('deletar_usuario');
 
 

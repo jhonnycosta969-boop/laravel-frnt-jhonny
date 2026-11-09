@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Support\Facades\Route;
@@ -33,3 +34,5 @@ Route::get('/emprestimos', [EmprestimoController::class, 'index'])
 
 Route::get('/pedidos', [PedidoController::class, 'index'])
     ->name('pedidos');
+
+Route::get('/login_teste', [LoginController::class, 'mostrarLogin'])->name('login_teste');
